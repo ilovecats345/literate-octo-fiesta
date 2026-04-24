@@ -105,3 +105,19 @@ form.addEventListener("submit", async (event) => {
     errorEl.textContent = "Failed to open proxied site.";
   }
 });
+// At the bottom of index.js
+window.addEventListener("message", (event) => {
+  if (event.data?.type === "gamer6677-proxy-navigate") {
+    const url = event.data.url;
+    if (url) {
+      input.value = url;
+      form.dispatchEvent(new Event("submit"));
+    }
+  }
+});
+const params = new URLSearchParams(location.search);
+const initialUrl = params.get("url");
+if (initialUrl) {
+  input.value = initialUrl;
+  form.dispatchEvent(new Event("submit"));
+}
