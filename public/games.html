@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Games – gamer6677 [proxy]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">gamer6677</span>
+      <span class="logo-bracket">]</span>
+      <span class="logo-sub">proxy</span>
+    </div>
+    <nav class="nav-tabs">
+      <a class="tab" href="index.html">Proxy</a>
+      <a class="tab active" href="games.html">Games</a>
+      <a class="tab" href="apps.html">Apps</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <h1 class="page-title">Games</h1>
+    <p class="page-sub">
+      Unblocked games you can play through the proxy. Links open via the main proxy page.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Example Game 1</div>
+        <div class="card-sub">Arcade / Browser</div>
+        <a class="card-link" href="https://example.com/game1" data-proxy>
+          Play
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Example Game 2</div>
+        <div class="card-sub">Action / Multiplayer</div>
+        <a class="card-link" href="https://example.com/game2" data-proxy>
+          Play
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Example Game 3</div>
+        <div class="card-sub">Puzzle / Casual</div>
+        <a class="card-link" href="https://example.com/game3" data-proxy>
+          Play
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>gamer6677 [proxy] – Games tab</span>
+      <span>Games are loaded through the main proxy interface.</span>
+    </div>
+  </footer>
+
+  <script>
+    // When a game card is clicked, open it in the main proxy page
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("[data-proxy]");
+      if (!link) return;
+
+      event.preventDefault();
+      const url = link.href;
+
+      // If the main proxy page is open in another tab, reuse it
+      const mainPage = window.open("", "gamer6677-proxy");
+      if (mainPage && !mainPage.closed) {
+        mainPage.focus();
+        mainPage.postMessage(
+          { type: "gamer6677-proxy-navigate", url },
+          "*"
+        );
+      } else {
+        // Fallback: open the main page with the URL as a query param
+        window.open(`index.html?url=${encodeURIComponent(url)}`, "_blank");
+      }
+    });
+  </script>
+</body>
+</html>
