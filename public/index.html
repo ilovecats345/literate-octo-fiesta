@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>gamer6677 [proxy]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">gamer6677</span>
+      <span class="logo-bracket">]</span>
+      <span class="logo-sub">proxy</span>
+    </div>
+    <nav class="nav-tabs">
+      <a class="tab active" href="index.html">Proxy</a>
+      <a class="tab" href="games.html">Games</a>
+      <a class="tab" href="apps.html">Apps</a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="hero">
+      <h1 class="hero-title">
+        gamer6677 <span class="hero-alt">[proxy]</span>
+      </h1>
+      <p class="hero-sub">
+        Browse freely, play freely. Powered by Scramjet &amp; TitaniumNetwork tech.
+      </p>
+
+      <form id="proxy-form" class="proxy-form">
+        <div class="input-row">
+          <input
+            id="proxy-url"
+            type="text"
+            class="proxy-input"
+            placeholder="Search or enter URL..."
+            autocomplete="off"
+            required
+          />
+          <button class="proxy-button" type="submit">
+            Go
+          </button>
+        </div>
+        <div class="search-hint">
+          <span>Uses your default search engine for non-URLs.</span>
+        </div>
+      </form>
+
+      <div id="proxy-error" class="proxy-error"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>gamer6677 [proxy] – experimental frontend</span>
+      <span>Backend: <a href="https://github.com/MercuryWorkshop/scramjet" target="_blank" rel="noopener">Scramjet</a></span>
+      <span>Docs: <a href="https://docs.titaniumnetwork.org/proxies/scramjet" target="_blank" rel="noopener">TN Scramjet</a></span>
+    </div>
+  </footer>
+
+  <!--
+    IMPORTANT: Load order per TN docs:
+    1. BareMux
+    2. BareMux transport
+    3. Scramjet all bundle
+  -->
+  <script src="/baremux/worker.js"></script>
+  <script src="/scram/scramjet.all.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
