@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apps – gamer6677 [proxy]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">gamer6677</span>
+      <span class="logo-bracket">]</span>
+      <span class="logo-sub">proxy</span>
+    </div>
+    <nav class="nav-tabs">
+      <a class="tab" href="index.html">Proxy</a>
+      <a class="tab" href="games.html">Games</a>
+      <a class="tab active" href="apps.html">Apps</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <h1 class="page-title">Apps</h1>
+    <p class="page-sub">
+      Popular web apps you can access through the proxy.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Google</div>
+        <div class="card-sub">Search</div>
+        <a class="card-link" href="https://www.google.com" data-proxy>
+          Open
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">YouTube</div>
+        <div class="card-sub">Video</div>
+        <a class="card-link" href="https://www.youtube.com" data-proxy>
+          Open
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Discord</div>
+        <div class="card-sub">Chat</div>
+        <a class="card-link" href="https://discord.com/app" data-proxy>
+          Open
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Spotify</div>
+        <div class="card-sub">Music</div>
+        <a class="card-link" href="https://open.spotify.com" data-proxy>
+          Open
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Reddit</div>
+        <div class="card-sub">Social</div>
+        <a class="card-link" href="https://www.reddit.com" data-proxy>
+          Open
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>gamer6677 [proxy] – Apps tab</span>
+      <span>Apps load via the main proxy interface.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("[data-proxy]");
+      if (!link) return;
+
+      event.preventDefault();
+      const url = link.href;
+
+      const mainPage = window.open("", "gamer6677-proxy");
+      if (mainPage && !mainPage.closed) {
+        mainPage.focus();
+        mainPage.postMessage(
+          { type: "gamer6677-proxy-navigate", url },
+          "*"
+        );
+      } else {
+        window.open(`index.html?url=${encodeURIComponent(url)}`, "_blank");
+      }
+    });
+  </script>
+</body>
+</html>
